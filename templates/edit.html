@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Banner Creator</title>
+  <meta name="description" content="Banner Creator">
+  <meta name="author" content="Andreas Gajdosik">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <script src="js/fabric.min.js"></script>
+</head>
+
+<body style="background-color:grey;">
+
+    <canvas id="c" width="800" height="400" class="lower-canvas" style="width: 800px; height: 400px;background-color:white;"></canvas>
+
+    <select onchange=setBG(this.value)>
+        <option value="cross">uhlopricny kriz</option>
+        <option value="squares">kriz vodorovny</option>
+        <option value="fourH">ctyri horizontaly</option>
+        <option value="fourV">ctyri vertikaly</option>
+    </select>
+
+    <select onchange=setBGColor(0,this.value)>
+        <option value="red">cervena</option>
+        <option value="black">cerna</option>
+        <option value="green">zelena</option>
+        <option value="yellow">zluta</option>
+    </select>
+
+    <select onchange=setBGColor(1,this.value)>
+        <option value="red">cervena</option>
+        <option value="black">cerna</option>
+        <option value="green">zelena</option>
+        <option value="yellow">zluta</option>
+    </select>
+
+    <select onchange=setBGColor(2,this.value)>
+        <option value="red">cervena</option>
+        <option value="black">cerna</option>
+        <option value="green">zelena</option>
+        <option value="yellow">zluta</option>
+    </select>
+
+    <select onchange=setBGColor(3,this.value)>
+        <option value="red">cervena</option>
+        <option value="black">cerna</option>
+        <option value="green">zelena</option>
+        <option value="yellow">zluta</option>
+    </select>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
