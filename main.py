@@ -1,28 +1,21 @@
 import tornado.ioloop
 import tornado.web
+import pymysql.cursors
 
-class Index(tornado.web.RequestHandler):
-    def get(self):
-        self.render("index.html")
+from handlers import index,flags,edit,add
 
-class Flags(tornado.web.RequestHandler):
-    def get(self):
-        self.render("flags.html")
-
-class Edit(tornado.web.RequestHandler):
-    def get(self):
-        self.render("edit.html")
-
-class Add(tornado.web.RequestHandler):
-    def get(self):
-        self.render("edit.html")
+#connection = pymysql.connect(host='localhost',
+#                             user='user',
+#                             db='f118284',
+#                             password='password'
+#                             )
 
 def make_app():
     return tornado.web.Application([
-        (r"/", Index),
-        (r"/flags", Flags),
-        (r"/edit", Edit),
-        (r"/add", Add),
+        (r"/", index.Index),
+        (r"/flags", flags.Flags),
+        (r"/edit", edit.Edit),
+        (r"/add", add.Add),
 
         (r'/js/(.*)', tornado.web.StaticFileHandler, {'path': 'js/'}),
         (r'/css/(.*)', tornado.web.StaticFileHandler, {'path': 'css/'}),
