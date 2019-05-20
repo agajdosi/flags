@@ -1,11 +1,15 @@
 import tornado.web
 import sqlite3
 
-class Flags(tornado.web.RequestHandler):
+class Flag(tornado.web.RequestHandler):
     def get(self):
+        try:
+            id = self.get_argument("id")
+        except:
+            self.redirect("/flags")
 
         conn = sqlite3.connect('main.db')
-        cursor = conn.execute("SELECT * from FLAGS")
+        cursor = conn.execute("SELECT * from FLAGS WHERE id = {0}".format(id))
         rows = []
         for row in cursor:
             dic = {
@@ -16,6 +20,9 @@ class Flags(tornado.web.RequestHandler):
                 "open" : row[4],
                 "image" : row[5]}
             rows.append(dic)
-
         conn.close()
-        self.render("flags.html", flags=rows)
+
+        if rows == []:
+            self.redirect("/flags")
+        else:
+            self.render("flag.html", flags=rows)
