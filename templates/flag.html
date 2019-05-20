@@ -8,16 +8,18 @@
   <meta name="description" content="List of Flags">
   <meta name="author" content="Andreas Gajdosik">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
 </head>
 
 <body style="background-color:grey;">
 
-  <ul>
-    {% for flag in flags %}
-        <li>{{ flag["id"] }}, {{ flag["name"] }}, {{ flag["description"] }} , {{ flag["owner"] }}, {{ flag["image"] }}</li>
-    {% end %}
-  </ul>
+
+    
+  {{ flag["name"] }}  <br>
+  {{ flag["description"] }} <br>
+  {{ flag["owner"] }} <br>
+  <img src='{{ flag["image"] }}'>
+
+
 
 </body>
 </html>

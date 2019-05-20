@@ -8,7 +8,6 @@
   <meta name="description" content="Banner Creator">
   <meta name="author" content="Andreas Gajdosik">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
   <script src="js/fabric.min.js"></script>
 </head>
 
@@ -50,6 +49,19 @@
         <option value="green">zelena</option>
         <option value="yellow">zluta</option>
     </select>
+
+    <br>
+
+    <form method="post" id="flagform">
+        Jmeno vlajkove skupiny: <input type="text" name="name"><br>
+        Popis skupiny: <input type="text" name="description"><br>
+        Vase jmeno: <input type="text" name="username"><br>
+        Vase heslo: <input type="password" name="password"><br>
+        Vas email: <input type="text" name="email"><br>
+        <button onclick=postForm()>ULOZIT</button>
+    </form>
+
+    
 
   <script src="js/script.js"></script>
 </body>

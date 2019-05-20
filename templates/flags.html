@@ -8,7 +8,6 @@
   <meta name="description" content="List of Flags">
   <meta name="author" content="Andreas Gajdosik">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
 </head>
 
 <body style="background-color:grey;">
@@ -17,7 +16,7 @@
     {% for flag in flags %}
         <li>
           <a href="flag?id={{ flag['id'] }}">
-            {{ flag["name"] }}, {{ flag["description"] }} , {{ flag["owner"] }}, {{ flag["image"] }}
+            {{ flag["name"] }}, {{ flag["description"] }}
           </a>
         </li>
     {% end %}

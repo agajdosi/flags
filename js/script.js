@@ -2,11 +2,27 @@ var canvas = this.__canvas = new fabric.StaticCanvas('c');
 
 var bg = [];
 
-
 //setCrossBG();
 //setFourHorizonsBG();
 //setFourVerticalsBG();
 setSquaresBG();
+
+function postForm(){
+    image = canvas.toDataURL("image/png");
+    console.log(image)
+    
+    form = document.getElementById('flagform');
+    form.method = "post";
+    
+    const hiddenField = document.createElement('input');
+    hiddenField.type = 'hidden';
+    hiddenField.name = "image";
+    hiddenField.value = image;
+    form.appendChild(hiddenField);
+
+    document.body.appendChild(form);
+    form.submit();
+}
 
 // BACKGROUNDS
 function setBG(bgType){
