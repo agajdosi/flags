@@ -8,13 +8,15 @@
   <meta name="description" content="{{ subtitle }}">
   <meta name="author" content="Andreas Gajdosik">
 
+  <link rel="stylesheet" type="text/css" href="css/base.css">
 </head>
 
-<body style="background-color:grey;">
-  <div class="top">
-    Flags
+<body>
+  <div class="site">
+    <div class="top">
+      Flags
+    </div>
+    <div class="content">{% block content %}{% end %}</div>
   </div>
-  <div id="content">{% block content %}{% end %}</div>
-
 </body>
 </html>
