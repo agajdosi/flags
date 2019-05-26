@@ -1,66 +1,56 @@
-<!doctype html>
+{% extends "base.html" %}
+{% block content %}
+<script src="js/fabric.min.js"></script>
 
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+<canvas id="c" width="800" height="400" class="lower-canvas" style="width: 800px; height: 400px;background-color:white;"></canvas>
 
-  <title>Banner Creator</title>
-  <meta name="description" content="Banner Creator">
-  <meta name="author" content="Andreas Gajdosik">
+<select onchange=setBG(this.value)>
+  <option value="cross">uhlopricny kriz</option>
+  <option value="squares">kriz vodorovny</option>
+  <option value="fourH">ctyri horizontaly</option>
+  <option value="fourV">ctyri vertikaly</option>
+</select>
 
-  <script src="js/fabric.min.js"></script>
-</head>
+<select onchange=setBGColor(0,this.value)>
+  <option value="red">cervena</option>
+  <option value="black">cerna</option>
+  <option value="green">zelena</option>
+  <option value="yellow">zluta</option>
+</select>
 
-<body style="background-color:grey;">
+<select onchange=setBGColor(1,this.value)>
+  <option value="red">cervena</option>
+  <option value="black">cerna</option>
+  <option value="green">zelena</option>
+  <option value="yellow">zluta</option>
+</select>
 
-    <canvas id="c" width="800" height="400" class="lower-canvas" style="width: 800px; height: 400px;background-color:white;"></canvas>
+<select onchange=setBGColor(2,this.value)>
+  <option value="red">cervena</option>
+  <option value="black">cerna</option>
+  <option value="green">zelena</option>
+  <option value="yellow">zluta</option>
+</select>
 
-    <select onchange=setBG(this.value)>
-        <option value="cross">uhlopricny kriz</option>
-        <option value="squares">kriz vodorovny</option>
-        <option value="fourH">ctyri horizontaly</option>
-        <option value="fourV">ctyri vertikaly</option>
-    </select>
+<select onchange=setBGColor(3,this.value)>
+  <option value="red">cervena</option>
+  <option value="black">cerna</option>
+  <option value="green">zelena</option>
+  <option value="yellow">zluta</option>
+</select>
 
-    <select onchange=setBGColor(0,this.value)>
-        <option value="red">cervena</option>
-        <option value="black">cerna</option>
-        <option value="green">zelena</option>
-        <option value="yellow">zluta</option>
-    </select>
+<br>
 
-    <select onchange=setBGColor(1,this.value)>
-        <option value="red">cervena</option>
-        <option value="black">cerna</option>
-        <option value="green">zelena</option>
-        <option value="yellow">zluta</option>
-    </select>
+<form method="post" id="flagform">
+  Jmeno vlajkove skupiny: <input type="text" name="name" required><br>
+  Popis skupiny: <input type="text" name="description" required><br>
+  Vase jmeno: <input type="text" name="username" required><br>
+  Vase heslo: <input type="password" name="password" required><br>
+  Vas email: <input type="email" name="email" required><br>
+  <button onclick="addForm()" type="button">ULOZIT</button>
+</form>
 
-    <select onchange=setBGColor(2,this.value)>
-        <option value="red">cervena</option>
-        <option value="black">cerna</option>
-        <option value="green">zelena</option>
-        <option value="yellow">zluta</option>
-    </select>
 
-    <select onchange=setBGColor(3,this.value)>
-        <option value="red">cervena</option>
-        <option value="black">cerna</option>
-        <option value="green">zelena</option>
-        <option value="yellow">zluta</option>
-    </select>
-
-    <br>
-
-    <form method="post" id="flagform">
-        Jmeno vlajkove skupiny: <input type="text" name="name"><br>
-        Popis skupiny: <input type="text" name="description"><br>
-        Vase jmeno: <input type="text" name="username"><br>
-        Vase heslo: <input type="password" name="password"><br>
-        Vas email: <input type="text" name="email"><br>
-        <button onclick=addForm()>ULOZIT</button>
-    </form>
-
-</body>
 <script src="js/add.js"></script>
-</html>
+
+{% end %}

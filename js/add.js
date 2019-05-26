@@ -9,7 +9,6 @@ setSquaresBG();
 
 function addForm(){
     image = canvas.toDataURL("image/png");
-    console.log(image)
     
     form = document.getElementById('flagform');
     form.method = "post";
@@ -21,6 +20,7 @@ function addForm(){
     form.appendChild(hiddenField);
 
     document.body.appendChild(form);
+
     form.submit();
 }
 

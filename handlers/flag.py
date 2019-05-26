@@ -31,7 +31,7 @@ class Flag(tornado.web.RequestHandler):
             users.append(row[0])
 
         conn.close()
-        self.render("flag.html", flag=flag, users=users)
+        self.render("flag.html", subtitle=flag["name"], flag=flag, users=users)
 
     def post(self):
         username = self.get_argument("username")

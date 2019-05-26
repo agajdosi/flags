@@ -5,7 +5,7 @@ from . import login
 
 class Add(tornado.web.RequestHandler):
     def get(self):
-        self.render("add.html")
+        self.render("add.html", subtitle="Pridat vlajku")
 
     def post(self):
         name = self.get_argument("name")

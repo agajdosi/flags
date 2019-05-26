@@ -1,16 +1,5 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>Flags: {{ flag["name"] }}</title>
-  <meta name="description" content="List of Flags">
-  <meta name="author" content="Andreas Gajdosik">
-
-</head>
-
-<body style="background-color:grey;">
+{% extends "base.html" %}
+{% block content %}
     
   Nazev: {{ flag["name"] }}  <br>
   Popis: {{ flag["description"] }} <br>
@@ -31,8 +20,7 @@
       Jmeno: <input type="text" name="username"><br>
       Heslo: <input type="password" name="password"><br>
       Email: <input type="text" name="email"><br>
-      <input type="submit">
+      <button type="submit">Pridat se!</button>
   </form>
 
-</body>
-</html>
+{% end %}

@@ -1,16 +1,5 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>Seznam vlajek</title>
-  <meta name="description" content="List of Flags">
-  <meta name="author" content="Andreas Gajdosik">
-
-</head>
-
-<body style="background-color:grey;">
+{% extends "base.html" %}
+{% block content %}
 
   <ul>
     {% for flag in flags %}
@@ -22,5 +11,4 @@
     {% end %}
   </ul>
 
-</body>
-</html>
+{% end %}

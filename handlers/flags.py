@@ -18,4 +18,4 @@ class Flags(tornado.web.RequestHandler):
             rows.append(dic)
 
         conn.close()
-        self.render("flags.html", flags=rows)
+        self.render("flags.html", flags=rows, subtitle="seznam vlajek")
