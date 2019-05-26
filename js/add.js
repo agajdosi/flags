@@ -7,7 +7,7 @@ var bg = [];
 //setFourVerticalsBG();
 setSquaresBG();
 
-function postForm(){
+function addForm(){
     image = canvas.toDataURL("image/png");
     console.log(image)
     

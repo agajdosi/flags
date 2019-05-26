@@ -4,22 +4,35 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Seznam vlajek</title>
+  <title>Flags: {{ flag["name"] }}</title>
   <meta name="description" content="List of Flags">
   <meta name="author" content="Andreas Gajdosik">
 
 </head>
 
 <body style="background-color:grey;">
-
-
     
-  {{ flag["name"] }}  <br>
-  {{ flag["description"] }} <br>
-  {{ flag["owner"] }} <br>
-  <img src='{{ flag["image"] }}'>
+  Nazev: {{ flag["name"] }}  <br>
+  Popis: {{ flag["description"] }} <br>
+  Admin: {{ flag["owner"] }} <br>
+  <img src='{{ flag["image"] }}'><br>
 
+  Clenove vlajky:
+  <ul>
+    {% for user in users %}
+      <li>
+        {{ user }}
+      </li>
+    {% end %}
+  </ul>
 
+  Pripojit se k teto vlajce:<br>
+  <form method="post" id="subscribe">
+      Jmeno: <input type="text" name="username"><br>
+      Heslo: <input type="password" name="password"><br>
+      Email: <input type="text" name="email"><br>
+      <input type="submit">
+  </form>
 
 </body>
 </html>
