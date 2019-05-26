@@ -5,7 +5,7 @@ def verifyUser(username, password, email):
         addUser(username, password, email)
 
     conn = sqlite3.connect('main.db')
-    cursor = conn.execute("SELECT * from USERS WHERE email = '{0}'".format(email))
+    cursor = conn.execute("SELECT id, username, password, email from USERS WHERE email = '{0}'".format(email))
 
     user = cursor.fetchone()
 
@@ -16,12 +16,13 @@ def verifyUser(username, password, email):
 
     conn.close()
 
+    err = None
     if password != db_password:
-        return "Heslo se nehoduje s heslem v databazi!"
+        err = "Heslo se nehoduje s heslem v databazi!"
     if username != db_username:
-        return "Vase jmeno se neshoduje se jmenem vedenym k emailu: " + db_username
+        err = "Vase jmeno se neshoduje se jmenem vedenym k emailu: " + db_username
 
-    return None
+    return err, db_ID
 
 def userExists(email):
     conn = sqlite3.connect('main.db')
