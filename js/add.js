@@ -3,11 +3,6 @@ var bg = [];
 
 window.onload = onLoad()
 
-//setCrossBG();
-//setFourHorizonsBG();
-//setFourVerticalsBG();
-//setSquaresBG();
-
 function addForm(){
     image = canvas.toDataURL("image/png");
     
@@ -27,84 +22,117 @@ function addForm(){
 
 // BACKGROUNDS
 function setBG(bgType){
-    console.log("lol")
+    bg = []
     if (bgType == "cross") {
-        setCrossBG();
+        bg = getCrossBG();
     } else if (bgType =="squares") {
-        setSquaresBG();
+        bg = getSquaresBG();
     } else if (bgType == "fourH") {
-        setFourHorizonsBG();
+        bg = getFourHorizonsBG();
     } else if (bgType == "fourV") {
-        setFourVerticalsBG();
+        bg = getFourVerticalsBG();
+    } else if (bgType == "threeH") {
+        bg = getThreeHorizonsBG();
+    } else if (bgType == "threeV") {
+        bg = getThreeVerticalsBG();
+    } else if (bgType == "circle") {
+        bg = getCircleBG();
+    } else if (bgType == "triangle") {
+        bg = getTriangleBG();
+    } else if (bgType == "threetriangles") {
+        bg = getThreeTrianglesBG();
+    }
+
+
+    l = bg.length;
+    for (var i = 0; i < l; i++) {
+        selectorID = "bg-color-" + i
+        bg[i].set({ fill: document.getElementById(selectorID).value});
+        canvas.add(bg[i]);
     }
 }
 
-function setCrossBG(){
+function getCrossBG(){
     bg = [];
     bg.push(new fabric.Path('M 000 000 L 800 000 L 400 200 z'));
     bg.push(new fabric.Path('M 000 400 L 400 200 L 000 000 z'));
     bg.push(new fabric.Path('M 000 400 L 400 200 L 800 400 z'));
     bg.push(new fabric.Path('M 800 400 L 400 200 L 800 000 z'));
-    bg[0].set({ fill: document.getElementById("bg-color-1").value});
-    bg[1].set({ fill: document.getElementById("bg-color-2").value});
-    bg[2].set({ fill: document.getElementById("bg-color-3").value});
-    bg[3].set({ fill: document.getElementById("bg-color-4").value});
-    canvas.add(bg[0]);
-    canvas.add(bg[1]);
-    canvas.add(bg[2]);
-    canvas.add(bg[3]);
+    return bg
 }
 
-function setSquaresBG(){
+function getSquaresBG(){
     bg = [];
     bg.push(new fabric.Path('M 000 000 L 400 000 L 400 200 L 000 200 z'));
     bg.push(new fabric.Path('M 000 200 L 400 200 L 400 400 L 000 400 z'));
     bg.push(new fabric.Path('M 400 200 L 800 200 L 800 400 L 400 400 z'));
     bg.push(new fabric.Path('M 400 000 L 800 000 L 800 200 L 400 200 z'));
-    bg[0].set({ fill: document.getElementById("bg-color-1").value});
-    bg[1].set({ fill: document.getElementById("bg-color-2").value});
-    bg[2].set({ fill: document.getElementById("bg-color-3").value});
-    bg[3].set({ fill: document.getElementById("bg-color-4").value});
-    canvas.add(bg[0]);
-    canvas.add(bg[1]);
-    canvas.add(bg[2]);
-    canvas.add(bg[3]);
+    return bg
 }
 
-function setFourHorizonsBG(){
+function getFourHorizonsBG(){
     bg = [];
     bg.push(new fabric.Path('M 000 200 L 000 300 L 800 400 L 800 200 z'));
     bg.push(new fabric.Path('M 000 300 L 000 400 L 800 400 L 800 300 z'));
     bg.push(new fabric.Path('M 000 100 L 000 200 L 800 200 L 800 100 z'));
     bg.push(new fabric.Path('M 000 000 L 000 100 L 800 100 L 800 000 z'));
-    bg[0].set({ fill: document.getElementById("bg-color-1").value});
-    bg[1].set({ fill: document.getElementById("bg-color-2").value});
-    bg[2].set({ fill: document.getElementById("bg-color-3").value});
-    bg[3].set({ fill: document.getElementById("bg-color-4").value});
-    canvas.add(bg[0]);
-    canvas.add(bg[1]);
-    canvas.add(bg[2]);
-    canvas.add(bg[3]);
+    return bg
 }
 
-function setFourVerticalsBG(){
+function getFourVerticalsBG(){
     bg = [];
     bg.push(new fabric.Path('M 000 000 L 000 400 L 200 400 L 200 000 z'));
     bg.push(new fabric.Path('M 400 000 L 400 400 L 600 400 L 600 000 z'));
     bg.push(new fabric.Path('M 600 000 L 600 400 L 800 400 L 800 000 z'));
     bg.push(new fabric.Path('M 200 000 L 200 400 L 400 400 L 400 000 z'));
-    bg[0].set({ fill: document.getElementById("bg-color-1").value});
-    bg[1].set({ fill: document.getElementById("bg-color-2").value});
-    bg[2].set({ fill: document.getElementById("bg-color-3").value});
-    bg[3].set({ fill: document.getElementById("bg-color-4").value});
-    canvas.add(bg[0]);
-    canvas.add(bg[1]);
-    canvas.add(bg[2]);
-    canvas.add(bg[3]);
+    return bg
+}
+
+function getThreeHorizonsBG(){
+    bg = [];
+    bg.push(new fabric.Path('M 000 000 L 800 000 L 800 133 L 000 133 z'));
+    bg.push(new fabric.Path('M 000 133 L 800 133 L 800 266 L 000 266 z'));
+    bg.push(new fabric.Path('M 000 266 L 800 266 L 800 400 L 000 400 z'));
+    return bg
+}
+
+function getThreeVerticalsBG(){
+    bg = [];
+    bg.push(new fabric.Path('M 000 000 L 267 000 L 267 400 L 000 400 z'));
+    bg.push(new fabric.Path('M 267 000 L 534 000 L 534 400 L 267 400 z'));
+    bg.push(new fabric.Path('M 534 000 L 800 000 L 800 400 L 534 400 z'));
+    return bg
+}
+
+function getCircleBG(){
+    bg = [];
+    bg.push(new fabric.Path('M 000 000 L 800 000 L 800 400 L 000 400 z'));
+    bg.push(new fabric.Circle({
+        radius: 150,
+        left: 250,
+        top: 50
+    }));
+    return bg
+}
+
+function getTriangleBG(){
+    bg = [];
+    bg.push(new fabric.Path('M 000 000 L 800 000 L 800 400 L 000 400 z'));
+    bg.push(new fabric.Path('M 000 000 L 800 200 L 000 400 z'));
+    return bg
+}
+
+function getThreeTrianglesBG(){
+    bg = [];
+    bg.push(new fabric.Path('M 000 000 L 800 000 L 800 400 L 000 400 z'));
+    bg.push(new fabric.Path('M 000 000 L 800 066 L 000 133 z'));
+    bg.push(new fabric.Path('M 000 133 L 800 200 L 000 266 z'));
+    bg.push(new fabric.Path('M 000 266 L 800 333 L 000 400 z'));
+    document.getElementById("bg-color-2").selectedIndex = document.getElementById("bg-color-1").selectedIndex;
+    return bg
 }
 
 // CONTROLS
-
 function setBGColor(number, color){
     bg[Number(number)].set('fill', color);
     canvas.requestRenderAll();
@@ -112,11 +140,18 @@ function setBGColor(number, color){
 
 function randomize(){
     colorOne = Math.floor((Math.random() * 11));
-    colorTwo = Math.floor((Math.random() * 11));
-    document.getElementById("bg-color-1").selectedIndex = colorOne;
-    document.getElementById("bg-color-2").selectedIndex = colorTwo;
-    document.getElementById("bg-color-3").selectedIndex = colorOne;
-    document.getElementById("bg-color-4").selectedIndex = colorTwo;
+    var colorTwo;
+    while (true) {
+        colorTwo = Math.floor((Math.random() * 11));
+        if (colorOne != colorTwo) {
+            break;
+        }
+    }
+    
+    document.getElementById("bg-color-0").selectedIndex = colorOne;
+    document.getElementById("bg-color-1").selectedIndex = colorTwo;
+    document.getElementById("bg-color-2").selectedIndex = colorOne;
+    document.getElementById("bg-color-3").selectedIndex = colorTwo;
 
     bgFormat = Math.floor((Math.random() * 4))
     document.getElementById("bg-format").selectedIndex = bgFormat;
@@ -125,4 +160,6 @@ function randomize(){
 
 function onLoad(){
     randomize()
+    document.getElementById("bg-format").selectedIndex = 1;
+    document.getElementById("bg-format").onchange()
 }
