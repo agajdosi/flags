@@ -1,6 +1,5 @@
 import tornado.ioloop
 import tornado.web
-import pymysql.cursors
 import sqlite3
 from handlers import add,index,flags,flag
 
