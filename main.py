@@ -3,6 +3,8 @@ import tornado.web
 import sqlite3
 from handlers import add,index,flags,flag
 
+import argparse
+
 
 def make_app():
     return tornado.web.Application([
@@ -20,7 +22,11 @@ def make_app():
     )
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--port", "-p", help="defines which port will be used by webserver", type=int, default=8888)
+    args = parser.parse_args()
+
     app = make_app()
-    app.listen(8888)
-    print("server has started")
+    app.listen(args.port)
+    print("server has started: http://localhost:" + str(args.port))
     tornado.ioloop.IOLoop.current().start()
