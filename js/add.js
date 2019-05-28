@@ -1,4 +1,8 @@
-var canvas = this.__canvas = new fabric.StaticCanvas('c');
+var canvas = new fabric.Canvas('c')
+
+
+console.log(canvas)
+
 var bg = [];
 
 window.onload = onLoad()
@@ -21,7 +25,7 @@ function addForm(){
 }
 
 // BACKGROUNDS
-function setBG(){
+function drawBG(){
     bgType = document.getElementById("bg-format").value
     bg = []
     if (bgType == "cross") {
@@ -44,18 +48,24 @@ function setBG(){
         bg = getThreeTrianglesBG();
     }
 
-
     l = bg.length;
     for (var i = 0; i < l; i++) {
         y = i % 4;
         colorID = "bg-color-" + y;
-        
         if (bg[i] != "") {
-            console.log(bg[i])
             bg[i].set({ fill: document.getElementById(colorID).value});
+            bg[i].set('selectable', false);
             canvas.add(bg[i]);
         }
     }
+}
+
+function drawIcon(){
+    fabric.Image.fromURL('img/3.svg', function(oImg) {
+        canvas.add(oImg).setActiveObject(oImg);
+        oImg.scale(0.3);
+        console.log("icon drawn")
+      });
 }
 
 function getCrossBG(){
@@ -140,6 +150,13 @@ function getThreeTrianglesBG(){
 }
 
 // CONTROLS
+function render(){
+    drawBG();
+    //console.log("background drawn")
+    drawIcon();
+    //console.log("animal drawn")
+}
+
 function randomize(){
     colorOne = Math.floor((Math.random() * 11));
     var colorTwo;
@@ -157,11 +174,11 @@ function randomize(){
 
     bgFormat = Math.floor((Math.random() * 4))
     document.getElementById("bg-format").selectedIndex = bgFormat;
-    document.getElementById("bg-format").onchange()
+    render();
 }
 
 function onLoad(){
-    randomize()
-    document.getElementById("bg-format").selectedIndex = 1;
-    document.getElementById("bg-format").onchange()
+    randomize();
+    //render();
 }
+
