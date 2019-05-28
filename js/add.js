@@ -21,7 +21,8 @@ function addForm(){
 }
 
 // BACKGROUNDS
-function setBG(bgType){
+function setBG(){
+    bgType = document.getElementById("bg-format").value
     bg = []
     if (bgType == "cross") {
         bg = getCrossBG();
@@ -46,9 +47,14 @@ function setBG(bgType){
 
     l = bg.length;
     for (var i = 0; i < l; i++) {
-        selectorID = "bg-color-" + i
-        bg[i].set({ fill: document.getElementById(selectorID).value});
-        canvas.add(bg[i]);
+        y = i % 4;
+        colorID = "bg-color-" + y;
+        
+        if (bg[i] != "") {
+            console.log(bg[i])
+            bg[i].set({ fill: document.getElementById(colorID).value});
+            canvas.add(bg[i]);
+        }
     }
 }
 
@@ -126,18 +132,14 @@ function getThreeTrianglesBG(){
     bg = [];
     bg.push(new fabric.Path('M 000 000 L 800 000 L 800 400 L 000 400 z'));
     bg.push(new fabric.Path('M 000 000 L 800 066 L 000 133 z'));
+    bg.push("");
     bg.push(new fabric.Path('M 000 133 L 800 200 L 000 266 z'));
+    bg.push("");
     bg.push(new fabric.Path('M 000 266 L 800 333 L 000 400 z'));
-    document.getElementById("bg-color-2").selectedIndex = document.getElementById("bg-color-1").selectedIndex;
     return bg
 }
 
 // CONTROLS
-function setBGColor(number, color){
-    bg[Number(number)].set('fill', color);
-    canvas.requestRenderAll();
-}
-
 function randomize(){
     colorOne = Math.floor((Math.random() * 11));
     var colorTwo;
